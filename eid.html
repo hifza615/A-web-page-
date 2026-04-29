@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Wishes 🌙</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup */
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box {
+    background: darkolivegreen;
+    color: black;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: gold;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Main content */
+.content {
+    display: none;
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+    color: gold;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 30px yellow; }
+}
+
+p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.moon {
+    font-size: 70px;
+    animation: float 3s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>Enter Your Name 🌙</h2>
+        <input type="text" id="nameInput" placeholder="Your name...">
+        <br>
+        <button onclick="showWish()">See Your Wish ✨</button>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content" id="content">
+    <div class="moon">🌙</div>
+    <h1 id="wishText"></h1>
+    <p>May your life be filled with happiness, peace and endless blessings 💖</p>
+    <p>Enjoy your Eid with family, friends and lots of Eidi! 🎉</p>
+</div>
+
+<script>
+function showWish() {
+    let name = document.getElementById("nameInput").value;
+
+    if(name === "") {
+        alert("Please enter your name 😊");
+        return;
+    }
+
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("content").style.display = "block";
+
+    document.getElementById("wishText").innerText = "Eid Mubarak, " + name + "!";
+}
+</script>
+
+</body>
+</html>
